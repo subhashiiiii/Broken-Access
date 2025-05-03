@@ -3,20 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <title>Profile Viewer</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>Welcome to Profile Viewer</h1>
 
-  <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const userId = urlParams.get("userId");
-    if (userId) {
-        document.getElementById("userId").value = userId;
-        document.getElementById("profileForm").dispatchEvent(new Event("submit"));
-    }
-    </script>
-
-  
   <p>Enter a user ID to view a profile (e.g., 101):</p>
   <form id="profileForm">
     <input type="text" id="userId" name="userId" value="101">
@@ -26,8 +17,17 @@
   <div id="profile" style="margin-top: 20px;"></div>
 
   <script src="script.js"></script>
-  <link rel="stylesheet" href="style.css">
 
+  <script>
+    // Wait until everything is loaded
+    window.onload = function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const userId = urlParams.get("userId");
+      if (userId) {
+        document.getElementById("userId").value = userId;
+        document.getElementById("profileForm").dispatchEvent(new Event("submit"));
+      }
+    };
+  </script>
 </body>
 </html>
-
