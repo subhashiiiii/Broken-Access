@@ -7,6 +7,14 @@
 <body>
   <h1>Welcome to Profile Viewer</h1>
 
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const userId = urlParams.get("userId");
+    if (userId) {
+        document.getElementById("userId").value = userId;
+        document.getElementById("profileForm").dispatchEvent(new Event("submit"));
+    }
+    </script>
 
   
   <p>Enter a user ID to view a profile (e.g., 101):</p>
@@ -22,3 +30,4 @@
 
 </body>
 </html>
+
